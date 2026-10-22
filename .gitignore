@@ -1,0 +1,9 @@
+node_modules/
+.pnpm-store/
+dist/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+references/
+qa/
