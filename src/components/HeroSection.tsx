@@ -10,7 +10,7 @@ export function HeroSection() {
       <h1 id="hero-title"><span>A sua</span><strong>Nova fase</strong><span>Começa aqui.</span></h1>
       <p className="hero-subtitle">Musculação <b>|</b> Emagrecimento <b>|</b> <em>Hipertrofia</em><br className="desktop-break" /> em <em>Passo Fundo.</em></p>
       <p className="hero-description">Mais que uma academia, um estilo de vida.<br className="desktop-break" /> Estrutura completa, profissionais qualificados e um ambiente que te impulsiona a ser a sua melhor versão.</p>
-      <div className="hero-actions"><a href="#planos" className="button button-solid plans-button"><Dumbbell aria-hidden="true" /><span>Ver planos</span><ChevronRight className="button-arrow" aria-hidden="true" /></a><ContactButton /></div>
+      <div className="hero-actions"><ContactButton variant="solid" /><a href="#planos" className="button button-outline plans-button"><Dumbbell aria-hidden="true" /><span>Ver planos</span><ChevronRight className="button-arrow" aria-hidden="true" /></a></div>
       <Features />
     </div><p className="motto" aria-hidden="true">Disciplina hoje.<br />Resultados sempre.</p></div>
   </section>;

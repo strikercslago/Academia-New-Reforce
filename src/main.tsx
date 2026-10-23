@@ -17,4 +17,5 @@ import { AcademyGallerySection } from './components/AcademyGallerySection';
 import { FinalCTASection } from './components/FinalCTASection';
 import { Footer } from './components/Footer';
 import { ReviewsSection } from './components/ReviewsSection';
-ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><a className="skip-link" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo"><HeroSection /><PlansSection /><OpeningHoursSection /><TeamSection /><AcademyGallerySection /><ReviewsSection /><FinalCTASection /></main><Footer /></React.StrictMode>);
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><a className="skip-link" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo"><HeroSection /><PlansSection /><OpeningHoursSection /><TeamSection /><AcademyGallerySection /><ReviewsSection /><FinalCTASection /></main><Footer /><FloatingWhatsApp /></React.StrictMode>);
