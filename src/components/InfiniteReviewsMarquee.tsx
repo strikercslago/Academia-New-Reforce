@@ -1,5 +1,4 @@
 import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from 'react';
-import { ArrowLeft, ArrowRight, Pause, Play } from 'lucide-react';
 import type { Review } from '../data/reviews';
 import { ReviewCard } from './ReviewCard';
 
@@ -112,9 +111,8 @@ export function InfiniteReviewsMarquee({ reviews, direction, speed = 60, label }
     paint();
   }
   return <div className="reviews-marquee" data-direction={direction}>
-    <div ref={viewport} className="reviews-viewport" tabIndex={0} role="region" aria-label={`${label}. Use as setas do teclado ou arraste para navegar.`} onPointerDown={start} onPointerMove={move} onPointerUp={finish} onPointerCancel={finish} onLostPointerCapture={finish} onDragStart={event => event.preventDefault()} onKeyDown={event => { if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); step(event.key === 'ArrowLeft' ? 1 : -1); } if (event.code === 'Space') { event.preventDefault(); setPlaying(value => !value); } }}>
+    <div ref={viewport} className="reviews-viewport" tabIndex={0} role="region" aria-label={`${label}. Use as setas do teclado ou arraste para navegar. Pressione espaço para pausar ou retomar.`} onPointerDown={start} onPointerMove={move} onPointerUp={finish} onPointerCancel={finish} onLostPointerCapture={finish} onDragStart={event => event.preventDefault()} onKeyDown={event => { if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); step(event.key === 'ArrowLeft' ? 1 : -1); } if (event.code === 'Space') { event.preventDefault(); setPlaying(value => !value); } }}>
       <div ref={track} className="reviews-track">{Array.from({ length: copies }, (_, index) => <div className="reviews-group" ref={index === 1 ? group : undefined} key={index} aria-hidden={index !== 1 ? true : undefined}>{reviews.map(review => <ReviewCard review={review} key={review.id} />)}</div>)}</div>
     </div>
-    <div className="reviews-row-controls container"><span>{label} <span aria-hidden="true">{direction === 'right' ? '→' : '←'}</span></span><div><button type="button" onClick={() => step(1)} aria-label={`${label}: mover para a direita`}><ArrowLeft aria-hidden="true" /></button><button type="button" onClick={() => setPlaying(value => !value)} aria-label={`${playing ? 'Pausar' : 'Retomar'} ${label.toLowerCase()}`} aria-pressed={!playing}>{playing ? <Pause aria-hidden="true" /> : <Play aria-hidden="true" />}<span>{playing ? 'Pausar' : 'Retomar'}</span></button><button type="button" onClick={() => step(-1)} aria-label={`${label}: mover para a esquerda`}><ArrowRight aria-hidden="true" /></button></div></div>
   </div>;
 }
